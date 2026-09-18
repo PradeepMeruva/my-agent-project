@@ -1,0 +1,14 @@
+{
+  "name": "drift-game",
+  "version": "1.0.0",
+  "description": "Drift — a cosmic avoidance game with grazing mechanics and persistent high scores",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "setup": "npm install --omit=dev"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.7.0",
+    "express": "^4.21.0"
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drift</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="game-canvas"></canvas>
+    <div id="hud">
+      <div id="hud-time">0:00</div>
+      <div id="hud-score">0</div>
+      <div id="hud-graze" class="hidden">GRAZE!</div>
+    </div>
+    <div id="overlay" class="active">
+      <div id="menu-screen" class="screen active">
+        <h1>DRIFT</h1>
+        <p class="tagline">Thread the void. Graze the edge.</p>
+        <div class="instructions">
+          <p>Guide your particle through the obstacle field.</p>
+          <p><strong>Mouse</strong> or <strong>Arrow Keys</strong> to move.</p>
+          <p>Pass close to obstacles to <em>graze</em> for bonus points.</p>
+          <p>Survive the full 90 seconds for maximum score.</p>
+        </div>
+        <button id="btn-start" class="glow-btn">START</button>
+      </div>
+      <div id="gameover-screen" class="screen hidden">
+        <h2>ROUND OVER</h2>
+        <div id="final-stats">
+          <div class="stat-row"><span>Time survived</span><span id="stat-time">0:00</span></div>
+          <div class="stat-row"><span>Graze bonus</span><span id="stat-graze">0</span></div>
+          <div class="stat-row total"><span>Workshop Score</span><span id="stat-total">0</span></div>
+        </div>
+        <div id="name-entry">
+          <input type="text" id="player-name" placeholder="Your name" maxlength="40" autocomplete="off">
+          <button id="btn-submit" class="glow-btn">SAVE SCORE</button>
+        </div>
+        <div id="submit-status" class="hidden"></div>
+        <button id="btn-retry" class="glow-btn secondary">PLAY AGAIN</button>
+      </div>
+      <div id="scores-panel">
+        <h3>HIGH SCORES</h3>
+        <ol id="scores-list"></ol>
+      </div>
+    </div>
+  </div>
+  <script src="js/scoring.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/entities.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
