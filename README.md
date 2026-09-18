@@ -51,12 +51,30 @@ the game-over screen, saved to the database, and returned by the API.
 
 ## API
 
+- `GET /api/workshop-status` — returns the current workshop status.
 - `GET /api/scores` — returns a JSON array of `{ player, score }` objects, best first (up to 50)
 - `POST /api/scores` — saves a score. Body: `{ "player": "name", "score": 750 }`.
   Validates: player required (1–40 chars), score required (integer 0–1000).
   Returns 201 on success, 400 with `{ error }` on bad input.
 
 Scores persist in SQLite (`data/scores.db`), surviving restarts.
+
+### Example: GET /api/workshop-status
+
+**Request**
+
+```bash
+curl http://127.0.0.1:3000/api/workshop-status
+```
+
+**Response** (HTTP 200)
+
+```json
+{
+  "status": "ok",
+  "workshop": "coding-agents"
+}
+```
 
 ## Running
 
@@ -81,6 +99,7 @@ src/
   server.js              Entry point — starts Express on PORT
   app.js                 Express app: middleware, static serving, routes
   routes/scores.js       GET/POST /api/scores handlers
+  routes/workshop-status.js  GET /api/workshop-status handler
   db/index.js            SQLite setup, prepared statements, queries
   validation/scores.js   Input validation for score submissions
   public/                Static assets served to the browser

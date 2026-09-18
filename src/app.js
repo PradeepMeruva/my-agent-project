@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const scoresRouter = require('./routes/scores');
+const workshopStatusRouter = require('./routes/workshop-status');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/scores', scoresRouter);
+app.use('/api/workshop-status', workshopStatusRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
